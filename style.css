@@ -1,13 +1,24 @@
+:root {
+  --QuizBlue: hsl(220, 100%, 82%);
+  
+  --correct: hsl(120, 60%, 60%);
+  --wrong: hsl(0, 60%, 60%);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+*::before, *::after {
+  box-sizing: border-box;
+}
 
 
 body {
   background-color: rgb(20, 20, 20);
+  color: #fff;
 }
 
 header {
@@ -32,28 +43,173 @@ header a {
   margin: 0 10px;
   color: #fff;
   font-weight: 600;
+  transition: 0.3s;
 }
-
+header a:hover {
+  color: var(--QuizBlue);
+}
 /* End of Header */
 
 #home {
-  height: 88vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#homeContent {
-  max-width: 600px;
+/* Home Content */
+.homeContent {
+  max-width: 650px;
   color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-#homeContent h1 {
+.homeContent.active { /* only active when user clicks Start Quiz */
+  filter: blur(80px);
+}
+
+.homeContent h1 {
   font-size: 72px;
   font-weight: 700;
   text-shadow: 0 1px 10px rgba(255, 255, 255, 0.3);
 }
-#homeContent p {
-  line-height: 1.6em;
+
+.homeContent p {
+  line-height: 1.75em;
   padding: 10px 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.homeContent .startButton {
+  width: 180px;
+  height: 50px;
+  background-color: var(--QuizBlue);
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #858585;
+  border-radius: 8px;
+  transition: 0.5s;
+  font-size: 16px;
+  font-weight: 600;
+}
+/*  */
+.homeContent .startButton:hover {
+  cursor: pointer;
+  background-color: hsl(220, 60%, 70%);
+}
+
+/* timer text */
+.time {
+  color: peru;
+  text-align: center;
+  padding: 20px;
+  font-size: larger;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+/* Quiz Section */
+.quizBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-width: 80%;
+  background-color: hsl(200, 5%, 15%);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 25px hsla(200, 85%, 90%, 0.3); 
+}
+
+#question {
+  text-align: center;
+  font-size: 25px;
+  padding: 10px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: aliceblue;
+}
+
+.btn-grid {
+  display: grid;
+  gap: 20px;
+  margin: 20px 0px 30px;
+}
+.btn {
+  color: hsl(172, 100%, 87%);
+  font-size: 18px;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid hsl(172, 100%, 87%);
+  padding: 20px 5px;
+  border-radius: 8px;
+  transition: 0.5s ease;
+}
+.btn:hover {
+  background-color: hsla(171, 61%, 80%, 0.02);
+  cursor: pointer;
+  box-shadow: 0 0 8px hsl(172, 100%, 78%);
+}
+
+/* correct and wrong button styles */
+.btn.correct {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--correct);
+  border: 1px solid var(--correct);
+  transition: 0.3s ease;
+}
+.btn.correct:hover {
+  box-shadow: 0 1px 8px var(--correct);
+  background-color: rgba(77, 179, 77, 0.02);
+}
+
+.btn.wrong {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--wrong);
+  border: 1px solid var(--wrong);
+}
+.btn.wrong:hover {
+  box-shadow: 0 1px 8px var(--wrong);
+  background-color: hsla(0, 60%, 50%, 0.02);
+  transition: 0.3s ease;
+}
+
+/* vvvvvvvvvvvvvvvvv */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.check-btn, .next-btn {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 30px;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: peru;
+  outline: none;
+  border-radius: 15px;
+  border: 1px solid hsl(30, 59%, 40%);
+  transition: 0.5s ease;
+}
+.check-btn:hover, .next-btn:hover {
+  background-color: hsla(30, 79%, 73%, 0.02);
+  box-shadow: 0 0 8px peru;
+}
+
+
+/* Hide */
+.hide {
+  display: none;
 }

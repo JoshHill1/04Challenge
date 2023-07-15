@@ -5,25 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>04 Challenge - Quiz</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script> <!-- defer loads the JS file last -->
 </head>
 <body>
   <header>
-    <a href="#" id="quiz">Quiz</a>
+    <a href="./index.html" id="quiz">Quiz</a>
     <nav>
       <a href="#">Home</a>
       <a href="#">Contact</a>
       <a href="#">Services</a>
     </nav>
   </header>
+
   <main>
     <section id="home">
-      <div id="homeContent">
+      <div class="homeContent">
         <h1>Quiz Website</h1>
         <p>This quiz will test you on important skills to have as part of being a web developer. These questions are a set of technical interview questions that have been created throughout the course. If you take this opportunity to practice, you should be well-prepared to shine during the technical interview process toward the end of this course!</p>
         <button class="startButton">Start Quiz</button>
       </div>
     </section>
-
+    <p class="time"></p>
+    
+    <div class="quizBox hide">
+      <div class="question-container">
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
+      <div class="controls">
+        <!-- <button id="check-btn" class="check-btn btn">Check Answer</button> -->
+        <button id="next-btn" class="next-btn btn">Next</button>
+      </div>
+    </div>
 
   </main>
   <footer>
